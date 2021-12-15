@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" style="background-color: #12304e;">
+    <mat-toolbar-row>
+        <h1>AcmeAuto</h1>
+        <span class="menu-spacer"></span>
+        <div>
+            <a mat-button [routerLink]="'/clientes'"> Clientes </a>
+            <a mat-button [routerLink]="'/automoveis'"> Automóveis </a>
+            <a mat-button [routerLink]="'/locacao'"> Locação </a>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<body style="background-color: white;">
+    <router-outlet></router-outlet>
+</body>

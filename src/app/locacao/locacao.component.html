@@ -1,0 +1,85 @@
+<div class="container">
+    <h1>Locação</h1>
+    <div class="content">
+
+        <mat-stepper #stepper linear="true">
+            <mat-step [stepControl]="firstFormGroup" label="Calcular" state="calcular">
+                <form [formGroup]="firstFormGroup">
+                    <div class="content-stepper row left-align">
+                        <div class="col col-lg-4">
+                            <mat-form-field class="full-width" appearance="fill">
+                                <mat-label>Clientes</mat-label>
+                                <mat-select [(ngModel)]=selectedCliente formControlName="selectedCliente" required>
+                                    <mat-option *ngFor="let cliente of clientes" [value]="cliente">
+                                        {{cliente.cpf}} - {{cliente.nome}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col col-lg-4">
+                            <mat-form-field class="full-width" appearance="fill">
+                                <mat-label>Automoveis</mat-label>
+                                <mat-select [(ngModel)]=selectedAutomovel formControlName="selectedAutomovel" required>
+                                    <mat-option *ngFor="let automovel of automoveis" [value]="automovel">
+                                        {{automovel.placa}} - {{automovel.marca}} {{automovel.modelo}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col col-lg-4">
+                            <mat-form-field class="full-width" appearance="fill">
+                                <mat-label>Quantidade de Dias</mat-label>
+                                <input matInput type="number" [(ngModel)]="dias" formControlName="dias" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <br>
+                    <button mat-raised-button matStepperNext color="primary" (click)="calcularLocacao()">Calcular</button>
+                </form>
+            </mat-step>
+
+
+            <mat-step label="Salvar" state="salvar">
+                <div class="content-stepper">
+                    <div *ngIf="calculoResponse">
+                        <div class="row left-align">
+                            <div class="col col-lg-3">
+                                <h2>Cliente</h2>
+                                <h3>Nome: {{selectedCliente.nome}}</h3>
+                                <h3>CPF: {{selectedCliente.cpf}}</h3>
+                            </div>
+                            <div class="col col-lg-3">
+                                <h2>Automóvel</h2>
+                                <h3>Placa: {{selectedAutomovel.placa}}</h3>
+                                <h3>Marca: {{selectedAutomovel.marca}}</h3>
+                                <h3>Modelo: {{selectedAutomovel.modelo}}</h3>
+                                <h3>Ano: {{selectedAutomovel.ano}}</h3>
+                            </div>
+                            <div class="col col-lg-3" *ngIf="dias > 14">
+                                <h2>+ Desconto 5%</h2>
+                            </div>
+                        </div>
+                        <div class="valor">
+                            <h2>Valor: {{calculoResponse.valorReal}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="valor">
+                    <button color="primary" mat-raised-button matStepperPrevious>Voltar</button>&nbsp;&nbsp;&nbsp;
+                    <button color="primary" mat-raised-button matStepperNext (click)="createLocacao()">Confirmar</button>
+                </div>
+            </mat-step>
+
+            <mat-step label="Concluido">
+                <h2>Locação Realizada com Sucesso !</h2>
+            </mat-step>
+
+            <ng-template matStepperIcon="calcular">
+                <mat-icon>calculate</mat-icon>
+            </ng-template>
+            <ng-template matStepperIcon="salvar">
+                <mat-icon>save</mat-icon>
+            </ng-template>
+        </mat-stepper>
+    </div>
+</div>

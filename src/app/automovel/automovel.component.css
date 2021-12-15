@@ -1,0 +1,23 @@
+h1 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 40px;
+}
+
+.mat-fab {
+    background-color: #12304e;
+    color: white;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+.mat-header-cell {
+    text-align: center;
+}
+
+.content {
+    padding-top: 30px;
+}

@@ -1,0 +1,36 @@
+<div class="container">
+    <h2 mat-dialog-title>Automovel</h2>
+    <mat-dialog-content class="mat-typography">
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Placa</mat-label>
+            <input matInput [(ngModel)]="data.placa">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Marca</mat-label>
+            <input matInput [(ngModel)]="data.marca">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Modelo</mat-label>
+            <input matInput [(ngModel)]="data.modelo">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Ano</mat-label>
+            <input matInput [(ngModel)]="data.ano">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Valor Diária</mat-label>
+            <input matInput [(ngModel)]="data.valorDiaria">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Disponível</mat-label>
+            <mat-select [(ngModel)]="data.disponivel">
+                <mat-option [value]="true">Sim</mat-option>
+                <mat-option [value]="false">Não</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    </mat-dialog-actions>
+</div>

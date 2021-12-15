@@ -1,0 +1,17 @@
+<div class="container">
+    <h2 mat-dialog-title>Cliente</h2>
+    <mat-dialog-content class="mat-typography">
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input matInput [(ngModel)]="data.cpf">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput [(ngModel)]="data.nome">
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    </mat-dialog-actions>
+</div>
